@@ -283,7 +283,7 @@ instance: react 实例属性
 
 ```css
 --cus-form__input-bg-color: #f1f1f1; //输入框背景色
-                                       --cus-form__active-color: #1890ff;  //插件主题色,如switch背景,采用该颜色
+--cus-form__active-color: #1890ff;  //插件主题色,如switch背景,采用该颜色
 ```
 
 
