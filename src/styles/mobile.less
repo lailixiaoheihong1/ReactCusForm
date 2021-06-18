@@ -1,0 +1,198 @@
+.mobile-form-group{
+	margin-bottom: .3rem;
+	.field-name{
+		font-size: .28rem;
+		margin-bottom: .1rem;
+		.sub-field-name{
+			font-size: .24rem;
+			margin-left: .15rem;
+		}
+	}
+	.form-text{
+	}
+
+	&__checkbox-text,&__radio-text{
+		.form-field{
+			margin-top: -.1rem;
+			.form-item__box{
+				margin-top: .2rem;
+				.form-item__label{
+					.label-title{
+						margin-left: .2rem;
+						font-size: .26rem;
+					}
+				}
+				input[type=text]{
+					margin-top: .1rem;
+				}
+			}
+		}
+	}
+
+	&__switch{
+		.switch-box{
+			width: 1rem;
+			.switch-box__button{
+			}
+			&.switch-box__active{
+				.switch-box__button{
+				}
+			}
+		}
+	}
+
+	&__checkbox,&__radio{
+		.form-item__label-box{
+			margin-top: -.1rem;
+			.form-item__label-checkbox, .form-item__label-radio{
+				margin-top: .1rem;
+				font-size: .26rem;
+				& + .form-item__label-checkbox, & + .form-item__label-radio{
+					margin-top: .25rem;
+				}
+				input[type=checkbox],input[type=radio]{
+					margin-right: .2rem;
+				}
+			}
+		}
+		&.form-group__inline{
+			&.form-group__one-line{
+				.form-group__top{
+					.field-name{
+						width: 1.8rem;
+						margin-bottom: 0;
+					}
+					.form-field{
+						margin-left: .5rem;
+						.form-item__label-box{
+						}
+					}
+				}
+			}
+			.form-item__label-checkbox,.form-item__label-radio{
+			}
+		}
+		.form-group__top{
+			.field-name{
+				margin-bottom: .3rem;
+				.form-group__top-left{
+					.form-group__top-left{
+						font-size: .28rem;
+					}
+				}
+			}
+		}
+		.form-item__text-field{
+			margin-top: .1rem;
+			margin-left: .5rem;
+		}
+	}
+	&__img-verify-code{
+		.form-field__img-verify-code{
+			input[type=text]{
+			}
+			.img-verify-code{
+				width: 2.4rem;
+			}
+		}
+	}
+	&__verify-code{
+		.form-field__verify-code{
+			.btn{
+				margin-left: .2rem;
+				width: 1.7rem;
+				height: .8rem;
+				font-size: .26rem;
+			}
+		}
+	}
+	&__checkbox-with-title{
+		.field-name{
+		}
+		.form-field__checkbox-with-title{
+			font-size: .24rem;
+			label{
+				input[type=checkbox]{
+					margin-right: .15rem;
+				}
+				.form-checkbox-with__title{
+				}
+			}
+			.form-checkbox-with__desc{
+			}
+		}
+	}
+	&__plain-text{
+		.form-field__plain-text{
+			font-size: .26rem;
+			padding-left: .2rem;
+		}
+	}
+	&__desc-tips{
+		.field-name{
+			.form-group__top-right{
+			}
+		}
+	}
+
+	&__show-pictures{
+		.form-field{
+			ul{
+				li{
+					height: 1.2rem;
+					img{
+					}
+				}
+			}
+		}
+
+	}
+	.form-field{
+		&.form-field__text__with-unit{
+			input[type=text],input[type=number],input[type=password]{
+				padding-right: 1rem;
+			}
+			.unit{
+				font-size: .24rem;
+				color: @light-black;
+				right: .2rem;
+			}
+		}
+		.text-number{
+			font-size: .26rem;
+		}
+		input[type=text],input[type=number],input[type=password],textarea,select{
+			padding-left: .2rem;
+			padding-right: .2rem;
+			display: block;
+		}
+		textarea{
+			padding-top: .1rem;
+			padding-bottom: .1rem;
+			height: 1.6rem;
+		}
+		select{
+		}
+		input[type=text],input[type=number],input[type=password],select{
+			height: .8rem;
+		}
+		&.check-box-group{
+			.radio-label{
+				.radio-input{
+					margin-right: .1rem;
+				}
+				.radio-text{
+					font-size: .26rem;
+				}
+				& + .radio-label{
+					margin-left: 1.1rem;
+				}
+			}
+		}
+	}
+	.form-msg{
+		font-size: .24rem;
+		margin-top: .15rem;
+	}
+}
+

@@ -1,0 +1,23 @@
+@import "vars";
+@import "common";
+@import "pc";
+@import "mobile";
+
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+@media only screen and (max-width: 768px) {
+	.form-group{
+		.mobile-form-group;
+	}
+}
+
+@media only screen and (min-width: 769px) {
+	.form-group{
+		.pc-form-group;
+	}
+}
+
