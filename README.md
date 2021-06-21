@@ -196,33 +196,34 @@ reactCusFormDemo.showItemByName('sex');
 
 ### options配置说明:
 
-- options: string | Array[object] | object 表单选项配置
+options: string | Array[object] | object 表单选项配置
 
   eg:
 
-```javascript
- string: (key,value 均为字符串本身,一般用于后台生成的自定义表单)
+ - string: (key,value 均为字符串本身,一般用于后台生成的自定义表单)
+  ```javascript
+   '大专,本科,无',
+  ```
+
+  - Array[object]:
+
+  ```javascript
+  [
+    {"title": "男 ","value":1},
+    {"title": "女","value":2},
+    {"title": "未知","value":0}
+  ]
 ```
 
-```javascript
- '大专,本科,无',
-```
+  - object: (排序按浏览器默认排序)
 
-    - Array[object]:
-
-```javascript
-[
-  {"title": "男 ","value":1},
-  {"title": "女","value":2},
-  {"title": "未知","value":0}
-]
-```
-
-	- object: (排序按浏览器默认排序)
-
-```javascript
-{    1: '党员',    2: '团员',    3: '无',}
-```
+  ```javascript
+    {    
+      1: '党员',  
+      2: '团员',
+      3: '无',
+    }
+  ```
 
 ------------
 
