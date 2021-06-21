@@ -2,10 +2,15 @@
 
 # 自定义表单生成器 ReactCusForm
 
-	通过用户传入的配置,自动生成表单组件
-	组件自带响应式样式, 自适应移动/pc端
-    可与后台自定义表单插件搭配食用
-    或前端用于生成页面
+	通过用户传入的配置,自动生成表单html代码
+	组件自带样式
+
+### 使用:
+
+```html
+<link href="dist/react-cus-form.css" rel="stylesheet">
+<script src="dist/index.js"></script>
+```
 
 ### 可生成表单 :
 
@@ -97,71 +102,76 @@
   tips: type字段均可接收 "-" 分割,eg: plainText 可传 'plain-text';
 
 
+
+
 ### 用法:
 
 ```javascript
-var reactCusFormDemo;
 var formItems = [
-  {
-    title: '每个人捐赠多少钱',
-    type: 'text',
-    value: '20',
-    placeholder: '请填写数字',
-    required: true,
-    unitText: '个',
-    inputType: 'number',
-    name: 'theme',
-    onMount: function (el ,input){
-      reactCusFormDemo.hideItemByName('sex'); //下面的 '性别' 字段将被隐藏
-    }
-  },
-  {
-    type: 'hiddenField',
-    value: '20',
-    onMount: function (el ,input){
-      console.log(input) //hiddenField可用于初始化各种插件
-    }
-  },
-  {
-    title: '性别',
-    type: 'select',
-    options: [
-      {"title": "男 ","value":1},
-      {"title": "女","value":2},
-      {"title": "未知","value":0}
-    ],
-    value: '女',
-    tips: '请填写性别',
-    placeholder: '请认真填写',
-    required: 1,
-    name: 'sex',
-    onMount: function (el ,input){
-    }
-  },
-  {
-    title: '我已阅读并同意',
-    desc: '《服务协议》',
-    onClickCheckboxTitleDesc(){
+    {
+        title: '每个人捐赠多少钱',
+        type: 'text',
+        value: '20',
+        placeholder: '请填写数字',
+        required: true,
+        unitText: '个',
+        inputType: 'number',
+        name: 'theme',
+        onMount: function (el ,input){
+            reactCusFormDemo.hideItemByName('sex'); //下面的 '性别' 字段将被隐藏
+        }
     },
-    type: 'checkboxWithTitle',
-    options: '',
-    value: '',
-    extraClassName: '',
-    tips: '请勾选服务协议',
-    required: 1,
-    name: 'agreement',
-    onMount: function (el ,input){
-    }
-  },
+    {
+        type: 'hiddenField',
+        value: '20', 
+        onMount: function (el ,input){
+            console.log(input) //hiddenField可用于初始化各种插件
+        }
+    },
+    {
+        title: '性别',
+        type: 'select',
+        options: [
+            {"title": "男 ","value":1},
+            {"title": "女","value":2},
+            {"title": "未知","value":0}
+        ],
+        value: '女',
+        tips: '请填写性别',
+        placeholder: '请认真填写',
+        required: 1,
+        name: 'sex',
+        onMount: function (el ,input){
+        }
+    },
+    {
+        title: '我已阅读并同意',
+        desc: '《服务协议》',
+        onClickCheckboxTitleDesc(){
+        },
+        type: 'checkboxWithTitle',
+        options: '',
+        value: '',
+        extraClassName: '',
+        tips: '请勾选服务协议',
+        required: 1,
+        name: 'agreement',
+        onMount: function (el ,input){
+        }
+    },
 ];
 
-reactCusFormDemo = ReactCusForm('form', {
-  fromItems: fromItems,
-  onMount: function(){
-
-  }
+var reactCusFormDemo = ReactCusForm('form', {
+    fromItems: fromItems,
+    onMount: function(){
+        
+    }
 });
 
+//隐藏性别字段
+reactCusFormDemo.hideItemByName('sex');
+//显示性别字段
+reactCusFormDemo.showItemByName('sex');
 ```
 
 ### 通用配置字段:
@@ -210,11 +220,7 @@ reactCusFormDemo = ReactCusForm('form', {
 	- object: (排序按浏览器默认排序)
 
 ```javascript
-{
-  1: '党员',
-          2: '团员',
-          3: '无',
-}
+{    1: '党员',    2: '团员',    3: '无',}
 ```
 
 ------------
@@ -223,7 +229,9 @@ reactCusFormDemo = ReactCusForm('form', {
 
 ## 扩展
 
-可以把不存在的type 转成 存在的类型,在初始化前后统一进行自定义操作
+可以把不存在的type 转成 存在的类型,
+
+或在类型初始化前后统一进行自定义操作
 
 使用方法
 
@@ -231,7 +239,7 @@ reactCusFormDemo = ReactCusForm('form', {
 ReactCusForm.registerItemType(type: String, function: conifg):config
 ```
 
-type为新的自定义类型
+type为新的自定义类型, 若type 的值与原类型相同, 可在初始化前后统一进行自定义操作
 
 function (config) =>  config 为原配置config;
 
@@ -242,28 +250,7 @@ function (config) =>  config 为原配置config;
 eg:  在hiddenField 基础上 , 新增 oss上传 picture类型
 
 ```javascript
-ReactCusForm.registerItemType('picture',function (config) {
-  return Object.assign({}, config, {
-    type: 'hiddenField',
-    onMount: function (el, input) {
-      var uploadOptions = {};
-      try{
-        uploadOptions = JSON.parse(config.options) || {};
-      }catch (e){
-      }
-
-      $(input).attr('data-srcjson', config.srcjson)
-              .ossuploaderWrapper({
-                url: '/extends/AliyunOss/policyGet/type/image.html',
-                multi_selection: false,
-                oss: true,
-                type: 'image',
-                limit: uploadOptions.max_upload_count || undefined,
-                show_msg: showMsg,
-              });
-    }
-  });
-});
+ReactCusForm.registerItemType('picture',function (config) {    return Object.assign({}, config, {         type: 'hiddenField',         onMount: function (el, input) {            var uploadOptions = {};            try{               uploadOptions = JSON.parse(config.options) || {};            }catch (e){            }                        $(input).attr('data-srcjson', config.srcjson)               .ossuploaderWrapper({                  url: '/extends/AliyunOss/policyGet/type/image.html',                  multi_selection: false,                  oss: true,                  type: 'image',                  limit: uploadOptions.max_upload_count || undefined,                  show_msg: showMsg,               });         }      });});
 ```
 
 
@@ -272,10 +259,10 @@ ReactCusForm.registerItemType('picture',function (config) {
 
 instance: react 实例属性
 
-方法: (依赖jquery)
+方法: (使用以下方法 需引入jquery)
 
-- showItemByName => [function: name=>string]
-- hideItemByName => [function: name=>string]
+- showItemByName(name: String): 根据配置中的name字段,显示项 
+- hideItemByName(name: String): 根据配置中的name字段,隐藏项
 
 根据 表单字段 name 隐藏/显示 字段
 
@@ -285,10 +272,10 @@ instance: react 实例属性
 
 ```css
 --cus-form__input-bg-color: #f1f1f1; //输入框背景色
---cus-form__active-color: #1890ff;  //插件主题色,如switch背景,采用该颜色
+--cus-form__active-color: #1890ff;  //插件主题色(蓝色),如switch背景,采用该颜色
 ```
 
-
+可通过变量修改颜色
 
 
 
@@ -297,12 +284,14 @@ instance: react 实例属性
 
 # 调试
 
+node 10, 12 均可运行, 其他版本请自行尝试
+
 1.  运行yarn
 2.  yarn run start
 3.  调试代码在 src/app.js
 
 ## 打包
 
-1. yarn run build
+2. yarn run build
 2. src/index.js 将被打包
 
