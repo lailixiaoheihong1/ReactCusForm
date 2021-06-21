@@ -107,6 +107,7 @@
 ### 用法:
 
 ```javascript
+var reactCusFormDemo;
 var formItems = [
     {
         title: '每个人捐赠多少钱',
@@ -161,7 +162,7 @@ var formItems = [
     },
 ];
 
-var reactCusFormDemo = ReactCusForm('form', {
+reactCusFormDemo = ReactCusForm('form', {
     fromItems: fromItems,
     onMount: function(){
         
