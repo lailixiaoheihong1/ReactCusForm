@@ -251,7 +251,27 @@ function (config) =>  config 为原配置config;
 eg:  在hiddenField 基础上 , 新增 oss上传 picture类型
 
 ```javascript
-ReactCusForm.registerItemType('picture',function (config) {    return Object.assign({}, config, {         type: 'hiddenField',         onMount: function (el, input) {            var uploadOptions = {};            try{               uploadOptions = JSON.parse(config.options) || {};            }catch (e){            }                        $(input).attr('data-srcjson', config.srcjson)               .ossuploaderWrapper({                  url: '/extends/AliyunOss/policyGet/type/image.html',                  multi_selection: false,                  oss: true,                  type: 'image',                  limit: uploadOptions.max_upload_count || undefined,                  show_msg: showMsg,               });         }      });});
+ReactCusForm.registerItemType('picture',function (config) { 
+	return Object.assign({}, config, {      
+          type: 'hiddenField',        
+          onMount: function (el, input) {     
+              var uploadOptions = {};     
+              try{            
+                  uploadOptions = JSON.parse(config.options) || {};   
+              }catch (e){       
+                  
+              }                        
+              $(input).attr('data-srcjson', config.srcjson)        
+                .ossuploaderWrapper({     
+                  url: '/extends/AliyunOss/policyGet/type/image.html',      
+                  multi_selection: false,          
+                  oss: true,           
+                  type: 'image',   
+                  limit: uploadOptions.max_upload_count || undefined,             
+                  show_msg: showMsg,     
+              });      
+          }  
+	});});
 ```
 
 
