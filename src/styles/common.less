@@ -58,16 +58,6 @@
 			}
 		}
 		&.form-group__inline{
-			&.form-group__one-line{
-				.form-group__top{
-					display: flex;
-					align-items: flex-start;
-					.field-name{
-						flex-shrink: 0;
-					}
-				}
-			}
-
 			.form-field{
 				display: flex;
 				flex-grow: 1;
@@ -80,6 +70,24 @@
 			}
 			.form-item__label-checkbox,.form-item__label-radio{
 				width: 50%;
+			}
+
+			&.form-group__one-line{
+				.form-group__top{
+					display: flex;
+					align-items: flex-start;
+					.field-name{
+						flex-shrink: 0;
+					}
+				}
+				.form-field{
+					.form-item__label-box{
+						margin-top: 0;
+						.form-item__label-radio,.form-item__label-checkbox{
+							margin-top: 0;
+						}
+					}
+				}
 			}
 		}
 		.form-group__top{

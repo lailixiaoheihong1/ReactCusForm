@@ -40,15 +40,6 @@
   cursor: pointer;
   color: #666;
 }
-.form-group__checkbox.form-group__inline.form-group__one-line .form-group__top,
-.form-group__radio.form-group__inline.form-group__one-line .form-group__top {
-  display: flex;
-  align-items: flex-start;
-}
-.form-group__checkbox.form-group__inline.form-group__one-line .form-group__top .field-name,
-.form-group__radio.form-group__inline.form-group__one-line .form-group__top .field-name {
-  flex-shrink: 0;
-}
 .form-group__checkbox.form-group__inline .form-field,
 .form-group__radio.form-group__inline .form-field {
   display: flex;
@@ -69,6 +60,25 @@
 .form-group__checkbox.form-group__inline .form-item__label-radio,
 .form-group__radio.form-group__inline .form-item__label-radio {
   width: 50%;
+}
+.form-group__checkbox.form-group__inline.form-group__one-line .form-group__top,
+.form-group__radio.form-group__inline.form-group__one-line .form-group__top {
+  display: flex;
+  align-items: flex-start;
+}
+.form-group__checkbox.form-group__inline.form-group__one-line .form-group__top .field-name,
+.form-group__radio.form-group__inline.form-group__one-line .form-group__top .field-name {
+  flex-shrink: 0;
+}
+.form-group__checkbox.form-group__inline.form-group__one-line .form-field .form-item__label-box,
+.form-group__radio.form-group__inline.form-group__one-line .form-field .form-item__label-box {
+  margin-top: 0;
+}
+.form-group__checkbox.form-group__inline.form-group__one-line .form-field .form-item__label-box .form-item__label-radio,
+.form-group__radio.form-group__inline.form-group__one-line .form-field .form-item__label-box .form-item__label-radio,
+.form-group__checkbox.form-group__inline.form-group__one-line .form-field .form-item__label-box .form-item__label-checkbox,
+.form-group__radio.form-group__inline.form-group__one-line .form-field .form-item__label-box .form-item__label-checkbox {
+  margin-top: 0;
 }
 .form-group__checkbox .form-group__top .field-name .form-group__top-left .form-group__top-left,
 .form-group__radio .form-group__top .field-name .form-group__top-left .form-group__top-left {
