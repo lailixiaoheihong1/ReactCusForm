@@ -13,6 +13,7 @@ function ReactCusForm(id, opt){
     const defaultOpt = { formItems: []};
     let options = Object.assign({}, defaultOpt, opt);
 
+
     options.formItems = options.formItems.map((item)=>{
         if(item.type in REGISTER_CONFIG){
             return REGISTER_CONFIG[item.type](item);

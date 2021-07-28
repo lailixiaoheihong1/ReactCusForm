@@ -14,6 +14,8 @@ function readonlyWrapper(config, handleReadonlyFn = ()=>{}, handleNormalFn = con
 		type: 'plainText',
 		value: READONLY_VALUE,
 		title: config.title,
+		required: config.required,
+		tips: config.tips,
 	};
 }
 
