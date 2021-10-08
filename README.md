@@ -188,7 +188,7 @@ reactCusFormDemo.showItemByName('sex');
   - required => boolean 是否必填(将有* 号标记, 且表单元素 有require属性)
   - name => string 字符名
   - placeholder => string 占位符(隐藏域等类型将不显示)
-  - tips => string 底部输入提示
+  - tips => string 底部输入提示,可传入html
   - readonly => boolean 是否只读 该字段开启  样式&结构 跟原来不同
 
 - 方法:
