@@ -225,7 +225,11 @@ function FormGroup(props) {
 	
 	let formTipsDom;
 	if(props.tips){
-		formTipsDom = <div className="form-msg">{props.tips}</div>;
+		formTipsDom = <div
+			dangerouslySetInnerHTML={{
+				__html: props.tips
+			}}
+			className="form-msg" />;
 	}
 	
 	let subTitleDom;

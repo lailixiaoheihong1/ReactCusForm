@@ -229,7 +229,7 @@ var formItems = [
 		textFieldPlaceHolder: 'textx',
 		options: '大专,本科,无',
 		value: '大专',
-		tips: '请填写性别',
+		tips: '<a target="_blank" href="https://baidu.com">请填写性别</a>',
 		placeholder: '请认真填写',
 		required: 1,
 		name: 'cus_from_3'
