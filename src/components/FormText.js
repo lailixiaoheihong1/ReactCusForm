@@ -8,12 +8,18 @@ function FormText(props) {
 		name,
 		unitText,
 		readonly,
-		inputType = 'text'
+		inputType = 'text',
+		needInt=false,
 	} = props;
 	let [inputValue, setVal] = useState(value);
 	
 	function handleChange(e){
-		setVal(e.target.value);
+		if (needInt) {
+			let number = e.target.value.replace(/[^0-9]+/g, '');
+			setVal(number);
+		} else {
+			setVal(e.target.value);
+		}
 	}
 	
 	let unitDom;

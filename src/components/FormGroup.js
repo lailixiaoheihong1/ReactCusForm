@@ -42,6 +42,7 @@ function FormGroup(props) {
 		textFieldVal,
 		textFieldPlaceHolder,
 		showDetailAddress,
+		needInt,
 	} = props;
 
 	let required = Utils.booleanValue(props.required);
@@ -220,7 +221,8 @@ function FormGroup(props) {
 				name={name}
 				inputType={inputType}
 				value={value || ''}
-				placeholder={placeholder} />;
+				placeholder={placeholder}
+				needInt={needInt} />;
 	}
 	
 	let formTipsDom;
