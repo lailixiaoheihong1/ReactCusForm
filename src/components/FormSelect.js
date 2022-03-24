@@ -1,4 +1,5 @@
 import React, {useState } from 'react';
+import FormText from './FormText';
 import Utils from "@/Utils";
 
 function FormSelect(props) {
@@ -16,16 +17,18 @@ function FormSelect(props) {
 	function handleChange(e){
 		setVal(e.target.value);
 	}
-	return <select
-		required={required}
-		name={name}
-		onChange={handleChange}
-		value={inputValue}>
-		{list.map((item)=> <option key={item.value}
-		                           value={item.value}>
-							{item.title}
-						</option>)}
-	</select>;
+	return <>
+		<select
+			required={required}
+			name={name}
+			onChange={handleChange}
+			value={inputValue}>
+			{list.map((item)=> <option key={item.value}
+									value={item.value}>
+								{item.title}
+							</option>)}
+		</select>
+	</>
 }
 
 export default FormSelect;
