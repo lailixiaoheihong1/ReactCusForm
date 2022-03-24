@@ -1,5 +1,4 @@
 import React, {useState } from 'react';
-import FormText from './FormText';
 import Utils from "@/Utils";
 
 function FormSelect(props) {
